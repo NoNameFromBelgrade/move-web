@@ -1,7 +1,7 @@
 import { test, expect } from '../../fixtures/test';
 import { Urls } from '../../constants/Urls';
 import { loginData, providerOptions } from '../../test-data/loginData';
-import { TopBar } from '../../pages/TopBar';
+import { TopBar } from '../../pages/components/TopBar';
 
 test.describe('Login', () => {
 

@@ -1,6 +1,6 @@
 import { Urls } from '../../constants/Urls';
 import { test, expect } from '../../fixtures/session';
-import { TopBar } from '../../pages/TopBar';
+import { TopBar } from '../../pages/components/TopBar';
 
 test.describe('Logout', () => {
   test('User can logout', async ({ sessionPage }) => {

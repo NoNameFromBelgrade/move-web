@@ -1,7 +1,7 @@
 import { test, expect } from '../../fixtures/session';
 import { Urls } from '../../constants/Urls';
 
-import { TopBar } from '../../pages/TopBar';
+import { TopBar } from '../../pages/components/TopBar';
 import { SearchPage } from '../../pages/SearchPage';
 import { VideoClubPage } from '../../pages/VideoClubPage';
 import { LiveTvPage } from '../../pages/LiveTvPage';

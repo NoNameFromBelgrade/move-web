@@ -1,19 +1,21 @@
 import { Locator, Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../BasePage';
 
 export class TopBar extends BasePage {
   private readonly profileMenuButton: Locator;
   private readonly profilesButton: Locator;
   private readonly logoutButton: Locator;
   private readonly searchButton: Locator;
+  private readonly settingsButton: Locator;
 
   constructor(page: Page) {
     super(page);
 
     this.profileMenuButton = page.getByLabel('Otvori meni naloga');
-    this.profilesButton = page.getByText('Profili');
+    this.profilesButton = page.getByText(/Profili|Profiles/);
     this.logoutButton = page.getByRole('button', { name: /Odjava|Logout/ });
     this.searchButton = page.getByLabel('Otvori pretragu');
+    this.settingsButton = page.getByText(/Podešavanja|Settings/);
   }
 
   async openMenu(): Promise<void> {
@@ -43,6 +45,13 @@ export class TopBar extends BasePage {
     await this.clickOnElement(
       this.searchButton,
       'Search button'
+    );
+  }
+
+  async clickOnSettings(): Promise<void> {
+    await this.clickOnElement(
+      this.settingsButton,
+      'Settings button'
     );
   }
 }
