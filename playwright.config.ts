@@ -48,6 +48,10 @@ export default defineConfig({
     headless: false,
 
     actionTimeout: 10_000,
+
+    launchOptions: {
+      slowMo: 300,
+    },
   },
 
   /* Browser projects */
