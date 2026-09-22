@@ -1,7 +1,7 @@
 import { test, expect } from '../../fixtures/test';
 import { Urls } from '../../constants/Urls';
 import { loginData, providerOptions } from '../../test-data/loginData';
-import { TopBar } from '../../pages/components/TopBar';
+import { TopBarComponent } from '../../pages/components/TopBarComponent';
 
 test.describe('Login', () => {
 
@@ -9,7 +9,7 @@ test.describe('Login', () => {
     const loginFormVisible = await loginPage.isLoginFormVisible();
 
     if (!loginFormVisible) {
-      const topBar = new TopBar(page);
+      const topBar = new TopBarComponent(page);
 
       await topBar.logout();
     }

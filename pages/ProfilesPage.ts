@@ -16,4 +16,11 @@ export class ProfilesPage extends BasePage {
       'Add profile button'
     );
   }
+
+  async clickOnProfile(profileName: string): Promise<void> {
+    await this.clickOnElement(
+      this.page.getByLabel('Izaberi profil ' + profileName),
+      `Click on profile: ${profileName}`
+    );
+  }
 }

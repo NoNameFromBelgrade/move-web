@@ -12,6 +12,7 @@ export class SearchPage extends BasePage {
   private readonly erosMovie: Locator;
   private readonly actorsFirstActor: Locator;
   private readonly dexterSeries: Locator;
+  private readonly babeMovie: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -26,6 +27,7 @@ export class SearchPage extends BasePage {
     this.erosMovie = page.getByLabel('Eros');
     this.actorsFirstActor = page.locator("//div[h2[text()='GLUMCI' or text()='ACTORS']]/following-sibling::div/div/div/div[1]");
     this.dexterSeries = page.getByLabel('Dekster');
+    this.babeMovie = page.getByLabel('BEJB').nth(0);
   }
 
   async fillSearchField(searchText: string): Promise<void> {
@@ -96,6 +98,13 @@ export class SearchPage extends BasePage {
     await this.clickOnElement(
       this.dexterSeries,
       'Dexter series in Video club - series'
+    );
+  }
+
+  async clickOnBabeVideoClubMovie(): Promise<void> {
+    await this.clickOnElement(
+      this.babeMovie,
+      'Babe movie in Video club'
     );
   }
 }
