@@ -1,10 +1,10 @@
 import { Urls } from '../../constants/Urls';
 import { test, expect } from '../../fixtures/session';
-import { TopBar } from '../../pages/components/TopBar';
+import { TopBarComponent } from '../../pages/components/TopBarComponent';
 
 test.describe('Logout', () => {
   test('User can logout', async ({ sessionPage }) => {
-    const topBar = new TopBar(sessionPage);
+    const topBar = new TopBarComponent(sessionPage);
 
     await sessionPage.goto(Urls.mojTv);
 

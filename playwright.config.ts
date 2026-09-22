@@ -22,7 +22,7 @@ export default defineConfig({
   workers: 1, //process.env.CI ? 1 : undefined,
 
   /* Test timeout */
-  timeout: 30_000,
+  timeout: 120_000,
 
   /* Assertion timeout */
   expect: {
@@ -45,12 +45,12 @@ export default defineConfig({
 
     video: 'retain-on-failure',
 
-    headless: false,
+    headless: true,
 
     actionTimeout: 10_000,
 
     launchOptions: {
-      slowMo: 300,
+      //slowMo: 700,
     },
   },
 

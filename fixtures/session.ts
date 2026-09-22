@@ -2,19 +2,25 @@ import { test as base, Page, BrowserContext } from '@playwright/test';
 import fs from 'fs';
 import { createLoginSession, loginSessionFile } from '../utils/loginSession';
 import { Urls } from '../constants/Urls';
-import { TopBar } from '../pages/components/TopBar';
+import { TopBarComponent } from '../pages/components/TopBarComponent';
 import { ProfilesPage } from '../pages/ProfilesPage';
-import { PinDialog } from '../pages/components/PinDialog';
+import { PinDialogComponent } from '../pages/components/PinDialogComponent';
 import { AddProfilePage } from '../pages/AddProfilePage';
 import { SettingsPage } from '../pages/SettingsPage';
+import { SettingsProfilesPage } from '../pages/SettingsProfilesPage';
+import { EditProfilePage } from '../pages/EditProfilePage';
+import { LoginPage } from '../pages/LoginPage';
 
 type Fixtures = {
   sessionPage: Page;
-  topBar: TopBar;
+  topBarComponent: TopBarComponent;
   profilesPage: ProfilesPage;
-  pinDialog: PinDialog;
+  pinDialogComponent: PinDialogComponent;
   addProfilePage: AddProfilePage;
   settingsPage: SettingsPage;
+  settingsProfilesPage: SettingsProfilesPage;
+  editProfilePage: EditProfilePage;
+  loginPage: LoginPage;
 };
 
 export const test = base.extend<Fixtures>({
@@ -59,16 +65,16 @@ export const test = base.extend<Fixtures>({
     await context.close();
   },
 
-  topBar: async ({ sessionPage }, use) => {
-    await use(new TopBar(sessionPage));
+  topBarComponent: async ({ sessionPage }, use) => {
+    await use(new TopBarComponent(sessionPage));
   },
 
   profilesPage: async ({ sessionPage }, use) => {
     await use(new ProfilesPage(sessionPage));
   },
 
-  pinDialog: async ({ sessionPage }, use) => {
-    await use(new PinDialog(sessionPage));
+  pinDialogComponent: async ({ sessionPage }, use) => {
+    await use(new PinDialogComponent(sessionPage));
   },
 
   addProfilePage: async ({ sessionPage }, use) => {
@@ -77,6 +83,18 @@ export const test = base.extend<Fixtures>({
 
   settingsPage: async ({ sessionPage }, use) => {
     await use(new SettingsPage(sessionPage));
+  },
+
+  settingsProfilesPage: async ({ sessionPage }, use) => {
+    await use(new SettingsProfilesPage(sessionPage));
+  },
+
+  editProfilePage: async ({ sessionPage }, use) => {
+    await use(new EditProfilePage(sessionPage));
+  },
+
+  loginPage: async ({ sessionPage }, use) => {
+    await use(new LoginPage(sessionPage));
   },
 });
 

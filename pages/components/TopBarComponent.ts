@@ -1,7 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from '../BasePage';
 
-export class TopBar extends BasePage {
+export class TopBarComponent extends BasePage {
   private readonly profileMenuButton: Locator;
   private readonly profilesButton: Locator;
   private readonly logoutButton: Locator;
@@ -15,7 +15,7 @@ export class TopBar extends BasePage {
     this.profilesButton = page.getByText(/Profili|Profiles/);
     this.logoutButton = page.getByRole('button', { name: /Odjava|Logout/ });
     this.searchButton = page.getByLabel('Otvori pretragu');
-    this.settingsButton = page.getByText(/Podešavanja|Settings/);
+    this.settingsButton = page.getByText(/^Podešavanja$|^Settings$/);
   }
 
   async openMenu(): Promise<void> {
